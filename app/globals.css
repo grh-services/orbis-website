@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --orbis-primary: 13 148 136;
+    --orbis-dark: 15 23 42;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-ink-900 font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+  }
+
+  ::selection {
+    @apply bg-orbis-200 text-orbis-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-50;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-orbis-200 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-orbis-400;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orbis-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-orbis-600 text-white hover:bg-orbis-700 hover:shadow-glow active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-orbis-700 border border-orbis-200 hover:border-orbis-400 hover:bg-orbis-50;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-700 hover:bg-ink-100;
+  }
+
+  .btn-dark {
+    @apply btn bg-ink-900 text-white hover:bg-ink-800;
+  }
+
+  .container-orbis {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-orbis-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-orbis-700 ring-1 ring-inset ring-orbis-100;
+  }
+
+  .heading-1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink-900;
+  }
+
+  .heading-2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink-900;
+  }
+
+  .heading-3 {
+    @apply text-2xl sm:text-3xl font-bold tracking-tight text-ink-900;
+  }
+
+  .lead {
+    @apply text-lg sm:text-xl text-ink-600 leading-relaxed;
+  }
+
+  .card {
+    @apply rounded-3xl border border-ink-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-soft hover:-translate-y-1;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-orbis-500 via-orbis-600 to-orbis-700 bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+}

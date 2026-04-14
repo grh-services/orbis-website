@@ -1,0 +1,213 @@
+{
+  "common": {
+    "language": "Langue",
+    "currency": "Devise",
+    "freeTrial": "Essai gratuit 14 jours",
+    "bookDemo": "Réserver une démo",
+    "talkToSales": "Parler à un commercial",
+    "learnMore": "En savoir plus",
+    "discover": "Découvrir",
+    "explore": "Explorer",
+    "contactUs": "Nous contacter",
+    "getStarted": "Commencer",
+    "loading": "Chargement...",
+    "all": "Tous",
+    "perMonth": "/ mois",
+    "yes": "Oui",
+    "no": "Non",
+    "included": "Inclus",
+    "optional": "Option",
+    "soon": "Bientôt"
+  },
+  "nav": {
+    "home": "Accueil",
+    "modules": "Modules",
+    "industries": "Secteurs",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "contact": "Contact",
+    "demo": "Démo",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "home": {
+    "hero": {
+      "badge": "Conçu en Guinée. Pensé pour l'Afrique.",
+      "titleStart": "Une vision",
+      "titleAccent": "complète",
+      "titleMid": ", un contrôle",
+      "titleAccent2": "total",
+      "subtitle": "Orbis ERP réunit 8 modules métiers dans une plateforme SaaS unique. Pilotez vos équipes, votre flotte, vos finances et vos projets depuis un seul tableau de bord, en GNF, EUR ou USD.",
+      "primaryCta": "Démarrer mon essai gratuit",
+      "secondaryCta": "Voir une démonstration",
+      "trustLine": "Sans carte bancaire — Configuration en 5 minutes — Hébergement souverain"
+    },
+    "stats": {
+      "modules": "Modules métiers",
+      "uptime": "Uptime garanti",
+      "currencies": "Devises supportées",
+      "support": "Support local"
+    },
+    "modules": {
+      "eyebrow": "Plateforme tout-en-un",
+      "title": "8 modules. 1 seule plateforme.",
+      "subtitle": "Activez ce dont vous avez besoin aujourd'hui, ajoutez le reste demain. Vos données circulent sans friction entre tous les modules.",
+      "exploreCta": "Explorer ce module"
+    },
+    "valueProps": {
+      "title": "Pourquoi Orbis ERP ?",
+      "subtitle": "Une plateforme conçue pour les réalités africaines : connectivité variable, multi-devises, conformité OHADA et paiements mobile money.",
+      "items": [
+        {
+          "title": "Conçu pour l'Afrique",
+          "body": "OHADA, CNSS, Orange Money, Wave, fonctionnement en mode déconnecté : Orbis parle votre langue."
+        },
+        {
+          "title": "Hébergement souverain",
+          "body": "Vos données restent en Guinée. Sauvegardes triples, chiffrement bout-en-bout, conformité RGPD."
+        },
+        {
+          "title": "Mobile-first",
+          "body": "Vos équipes terrain accèdent à tout depuis leur smartphone, même hors connexion. Synchronisation automatique."
+        },
+        {
+          "title": "Support en français",
+          "body": "Une équipe basée à Conakry vous accompagne par WhatsApp, téléphone ou visio, dans votre fuseau horaire."
+        }
+      ]
+    },
+    "testimonials": {
+      "eyebrow": "Témoignages",
+      "title": "Ils nous font déjà confiance",
+      "subtitle": "Des entreprises de toutes tailles utilisent Orbis ERP pour gagner en visibilité et en performance."
+    },
+    "cta": {
+      "title": "Prêt à reprendre le contrôle ?",
+      "subtitle": "Démarrez votre essai gratuit de 14 jours. Aucune carte bancaire requise.",
+      "primary": "Commencer maintenant",
+      "secondary": "Demander une démo personnalisée"
+    }
+  },
+  "pricing": {
+    "eyebrow": "Tarification transparente",
+    "title": "Une formule pour chaque ambition",
+    "subtitle": "Choisissez le plan qui correspond à votre taille, et faites évoluer votre Orbis au rythme de votre croissance.",
+    "month": "mois",
+    "popular": "Le plus populaire",
+    "compare": "Comparer les plans",
+    "comparisonTitle": "Comparatif détaillé par module",
+    "alacarteTitle": "Vous voulez du sur-mesure ?",
+    "alacarteSubtitle": "Notre offre À la carte vous permet de composer Orbis exactement comme vous le souhaitez.",
+    "requestQuote": "Demander un devis personnalisé",
+    "currencyHint": "Affichage des prix en",
+    "vatNotice": "Tarifs hors taxes. Engagement mensuel résiliable à tout moment.",
+    "module": "Module"
+  },
+  "modulesPage": {
+    "eyebrow": "Catalogue complet",
+    "title": "Tous les modules Orbis ERP",
+    "subtitle": "Cliquez sur un module pour découvrir ses fonctionnalités en détail.",
+    "keyFeatures": "Fonctionnalités clés",
+    "backToModules": "Retour aux modules",
+    "discoverOthers": "Découvrez aussi"
+  },
+  "sectorsPage": {
+    "eyebrow": "Secteurs d'expertise",
+    "title": "Une plateforme, plusieurs métiers",
+    "subtitle": "Orbis ERP s'adapte aux exigences spécifiques de chaque secteur d'activité.",
+    "keyModules": "Modules clés pour ce secteur",
+    "benefits": "Bénéfices concrets"
+  },
+  "about": {
+    "eyebrow": "Notre histoire",
+    "title": "Construire l'ERP que l'Afrique mérite",
+    "subtitle": "Orbis ERP est né en 2022 à Conakry, d'une conviction simple : les entreprises africaines méritent des outils de gestion conçus pour leurs réalités, pas adaptés depuis l'étranger.",
+    "missionTitle": "Notre mission",
+    "missionBody": "Donner à chaque dirigeant africain les moyens de prendre des décisions éclairées grâce à une vision unifiée de son entreprise. Démocratiser l'ERP de qualité internationale, à un coût juste.",
+    "visionTitle": "Notre vision",
+    "visionBody": "Devenir l'ERP de référence en Afrique de l'Ouest, soutenu par une équipe locale, des partenaires intégrateurs certifiés et un écosystème de modules ouverts.",
+    "valuesTitle": "Nos valeurs",
+    "values": [
+      {
+        "title": "Excellence locale",
+        "body": "Nous concevons et opérons depuis la Guinée, avec des équipes qui comprennent les réalités du terrain."
+      },
+      {
+        "title": "Transparence radicale",
+        "body": "Tarifs clairs, contrats simples, code auditable. Aucun coût caché."
+      },
+      {
+        "title": "Souveraineté numérique",
+        "body": "Vos données vous appartiennent. Hébergement local et exportabilité totale."
+      },
+      {
+        "title": "Innovation continue",
+        "body": "Mises à jour bimensuelles, écoute active de nos clients, roadmap publique."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Parlons de votre projet",
+    "title": "Contactez Orbis ERP",
+    "subtitle": "Une question, un projet, une démonstration ? Notre équipe vous répond sous 24h ouvrées.",
+    "formTitle": "Envoyez-nous un message",
+    "name": "Nom complet",
+    "email": "Email professionnel",
+    "company": "Entreprise",
+    "phone": "Téléphone",
+    "subject": "Sujet",
+    "message": "Votre message",
+    "submit": "Envoyer le message",
+    "submitting": "Envoi en cours...",
+    "successTitle": "Message envoyé !",
+    "successBody": "Merci, nous revenons vers vous très vite.",
+    "alt": "Ou plus simplement",
+    "callUs": "Appelez-nous",
+    "emailUs": "Écrivez-nous",
+    "whatsapp": "WhatsApp",
+    "whatsappCta": "Discuter sur WhatsApp",
+    "office": "Notre bureau"
+  },
+  "demo": {
+    "eyebrow": "Démonstration personnalisée",
+    "title": "Voyez Orbis ERP en action",
+    "subtitle": "30 minutes en visio avec un expert produit pour découvrir comment Orbis répond à vos besoins métiers.",
+    "what": "Ce que vous verrez",
+    "whatItems": [
+      "Une démonstration en direct des modules qui vous intéressent",
+      "Un parcours adapté à votre secteur et à votre taille",
+      "Une simulation de paramétrage avec vos données",
+      "Une estimation tarifaire personnalisée"
+    ],
+    "form": {
+      "preferredDate": "Date souhaitée",
+      "modules": "Modules d'intérêt",
+      "submit": "Réserver mon créneau"
+    }
+  },
+  "footer": {
+    "tagline": "Une vision complète, un contrôle total.",
+    "product": "Produit",
+    "company": "Entreprise",
+    "resources": "Ressources",
+    "legal": "Légal",
+    "modules": "Modules",
+    "pricing": "Tarifs",
+    "demo": "Démo",
+    "industries": "Secteurs",
+    "about": "À propos",
+    "contact": "Contact",
+    "blog": "Blog",
+    "documentation": "Documentation",
+    "status": "Statut système",
+    "privacy": "Confidentialité",
+    "terms": "CGU",
+    "cookies": "Cookies",
+    "rights": "Tous droits réservés.",
+    "madeIn": "Conçu avec passion à Conakry, Guinée."
+  },
+  "whatsapp": {
+    "label": "Discuter sur WhatsApp",
+    "message": "Bonjour Orbis, je souhaite en savoir plus sur votre ERP."
+  }
+}
