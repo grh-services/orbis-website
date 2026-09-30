@@ -13,16 +13,17 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const mod = getModuleBySlug(params.slug);
+  const { locale, slug } = await params;
+  const mod = getModuleBySlug(slug);
   if (!mod) return {};
   return {
-    title: mod.name[params.locale],
-    description: mod.long[params.locale],
+    title: mod.name[locale],
+    description: mod.long[locale],
   };
 }
 
-export default function ModuleDetailPage({ params }) {
-  const { locale, slug } = params;
+export default async function ModuleDetailPage({ params }) {
+  const { locale, slug } = await params;
   const dict = getDictionary(locale);
   const mod = getModuleBySlug(slug);
   if (!mod) notFound();

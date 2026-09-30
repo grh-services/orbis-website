@@ -7,15 +7,16 @@ import PageHeader from '@/components/PageHeader';
 import CTASection from '@/components/CTASection';
 
 export async function generateMetadata({ params }) {
-  const dict = getDictionary(params.locale);
+  const { locale } = await params;
+  const dict = getDictionary(locale);
   return {
     title: dict.modulesPage.title,
     description: dict.modulesPage.subtitle,
   };
 }
 
-export default function ModulesPage({ params }) {
-  const { locale } = params;
+export default async function ModulesPage({ params }) {
+  const { locale } = await params;
   const dict = getDictionary(locale);
 
   return (

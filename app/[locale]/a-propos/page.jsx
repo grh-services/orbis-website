@@ -7,15 +7,16 @@ import CTASection from '@/components/CTASection';
 const VALUE_ICONS = [Building2, Heart, Compass, Sparkles];
 
 export async function generateMetadata({ params }) {
-  const dict = getDictionary(params.locale);
+  const { locale } = await params;
+  const dict = getDictionary(locale);
   return {
     title: dict.about.title,
     description: dict.about.subtitle,
   };
 }
 
-export default function AboutPage({ params }) {
-  const { locale } = params;
+export default async function AboutPage({ params }) {
+  const { locale } = await params;
   const dict = getDictionary(locale);
   const t = dict.about;
 

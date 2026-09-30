@@ -5,8 +5,10 @@ import { MessageCircle } from 'lucide-react';
 import { SITE } from '@/config/site';
 
 export default function WhatsAppButton({ locale, dict }) {
+  const number = String(SITE.whatsapp ?? '').replace(/\D/g, '');
+  if (!number) return null;
   const message = encodeURIComponent(dict.whatsapp.message);
-  const href = `https://wa.me/${SITE.whatsapp}?text=${message}`;
+  const href = `https://wa.me/${number}?text=${message}`;
 
   return (
     <motion.a

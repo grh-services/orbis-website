@@ -4,15 +4,16 @@ import PageHeader from '@/components/PageHeader';
 import DemoForm from '@/components/DemoForm';
 
 export async function generateMetadata({ params }) {
-  const dict = getDictionary(params.locale);
+  const { locale } = await params;
+  const dict = getDictionary(locale);
   return {
     title: dict.demo.title,
     description: dict.demo.subtitle,
   };
 }
 
-export default function DemoPage({ params }) {
-  const { locale } = params;
+export default async function DemoPage({ params }) {
+  const { locale } = await params;
   const dict = getDictionary(locale);
   const t = dict.demo;
 
