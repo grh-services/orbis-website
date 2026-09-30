@@ -8,15 +8,15 @@ export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
-export default function LocaleLayout({ children, params }) {
-  const { locale } = params;
+export default async function LocaleLayout({ children, params }) {
+  const { locale } = await params;
   if (!LOCALES.includes(locale)) notFound();
   const dict = getDictionary(locale);
 
   return (
     <>
       <Header locale={locale} dict={dict} />
-      <main className="min-h-screen pt-20">{children}</main>
+      <main id="main-content" lang={locale} className="min-h-screen pt-20">{children}</main>
       <Footer locale={locale} dict={dict} />
       <WhatsAppButton locale={locale} dict={dict} />
     </>

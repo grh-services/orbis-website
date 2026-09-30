@@ -10,12 +10,14 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     @apply bg-white text-ink-900 font-sans antialiased;
+    background: #f7f4eb;
     font-feature-settings: 'cv11', 'ss01', 'ss03';
   }
 
@@ -41,6 +43,10 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-orbis-400;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 @layer components {

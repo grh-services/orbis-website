@@ -5,15 +5,16 @@ import ComparisonTable from '@/components/ComparisonTable';
 import CTASection from '@/components/CTASection';
 
 export async function generateMetadata({ params }) {
-  const dict = getDictionary(params.locale);
+  const { locale } = await params;
+  const dict = getDictionary(locale);
   return {
     title: dict.pricing.title,
     description: dict.pricing.subtitle,
   };
 }
 
-export default function PricingPage({ params }) {
-  const { locale } = params;
+export default async function PricingPage({ params }) {
+  const { locale } = await params;
   const dict = getDictionary(locale);
 
   return (
