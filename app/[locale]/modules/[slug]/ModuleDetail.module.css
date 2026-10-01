@@ -1,0 +1,68 @@
+.page {
+  --ink: #063b35;
+  --paper: #f7f4eb;
+  --muted: #566961;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-inter), Inter, Arial, sans-serif;
+  line-height: 1.7;
+}
+.wrap { max-width: 1480px; width: 100%; margin-inline: auto; padding-inline: clamp(24px, 6vw, 90px); }
+.page a:focus-visible { outline: 3px solid #268eaa; outline-offset: 5px; }
+.introduction { padding-top: 34px; padding-bottom: 68px; }
+.backLink { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-bottom: 36px; color: var(--muted); font-size: 13px; }
+.backLink:hover { color: var(--ink); }
+.introGrid { display: grid; grid-template-columns: 1.3fr .85fr; align-items: start; gap: 65px; }
+.introGrid > div { min-width: 0; }
+.eyebrow { margin: 0; color: #53765d; font-size: 11px; font-weight: 600; letter-spacing: .18em; line-height: 1.7; text-transform: uppercase; }
+.page h1 { max-width: 800px; margin: 23px 0 20px; font-size: clamp(39px, 4.5vw, 66px); font-weight: 500; line-height: 1.07; letter-spacing: -.055em; }
+.tagline { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: clamp(25px, 2.2vw, 32px); line-height: 1.25; letter-spacing: -.035em; }
+.description { max-width: 610px; margin: 25px 0 28px; color: var(--muted); font-size: 15px; line-height: 1.85; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 25px; min-height: 48px; padding: 13px 19px; border: 1px solid var(--ink); border-radius: 2px; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 500; line-height: 1.5; transition: background .2s; }
+.button svg, .textLink svg { flex: none; }
+.button:hover { background: #18594b; }
+.textLink { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 7px 0; border-bottom: 1px solid currentColor; font-size: 13px; }
+.textLink:hover { color: #267e53; }
+.scope { min-width: 0; border: 1px solid #cfdbc6; background: #e8eddf; padding: 31px; }
+.scope h2 { margin: 17px 0 22px; font-size: 27px; font-weight: 500; line-height: 1.2; letter-spacing: -.035em; }
+.scope ul { margin: 0; padding: 0; border-top: 1px solid #bfceb4; list-style: none; }
+.scope li { display: flex; align-items: center; gap: 12px; padding-block: 13px; border-bottom: 1px solid #bfceb4; font-size: 14px; }
+.scope li svg { flex: none; color: #267e53; }
+.scopeNote { margin: 23px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.related { padding-block: 46px 64px; border-top: 1px solid #d6ddd0; background: #e9ede2; }
+.related h2 { margin: 15px 0 30px; font-size: clamp(30px, 3vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -.045em; }
+.relatedGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px; }
+.relatedLink { padding-top: 17px; border-top: 1px solid #afc1a8; }
+.relatedLink h3 { display: flex; align-items: start; justify-content: space-between; gap: 10px; margin: 0 0 13px; font-size: 19px; font-weight: 500; line-height: 1.35; letter-spacing: -.025em; }
+.relatedLink h3 svg { flex: none; margin-top: 4px; }
+.relatedLink p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.relatedLink:hover h3 { color: #267e53; }
+@media (max-width: 1000px) {
+  .introGrid { gap: 35px; grid-template-columns: 1.1fr .9fr; }
+  .scope { padding: 24px; }
+  .scope h2 { font-size: 24px; }
+  .relatedGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+}
+@media (max-width: 700px) {
+  .introduction { padding-top: 23px; padding-bottom: 43px; }
+  .backLink { margin-bottom: 23px; }
+  .introGrid { grid-template-columns: 1fr; gap: 32px; }
+  .page h1 { margin-top: 20px; font-size: clamp(39px, 8vw, 52px); }
+  .tagline { font-size: 27px; }
+  .scope { padding: 26px; }
+  .related { padding-block: 35px 43px; }
+  .relatedLink h3 { font-size: 18px; }
+}
+@media (max-width: 420px) {
+  .wrap { padding-inline: 22px; }
+  .eyebrow { font-size: 10px; }
+  .page h1 { font-size: 36px; }
+  .tagline { font-size: 25px; }
+  .button { width: 100%; gap: 12px; }
+  .scope { padding: 21px; }
+  .relatedGrid { grid-template-columns: 1fr; gap: 27px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+}

@@ -14,7 +14,7 @@ export default function LanguageSwitcher({ locale, tone = 'dark' }) {
     if (LOCALES.includes(segments[1])) segments[1] = target;
     else segments.splice(1, 0, target);
     document.cookie = `NEXT_LOCALE=${target}; path=/; max-age=31536000; SameSite=Lax`;
-    router.push(segments.join('/') || `/${target}`);
+    router.push(`${segments.join('/') || `/${target}`}${window.location.search}${window.location.hash}`);
   };
 
   return (

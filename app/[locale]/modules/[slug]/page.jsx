@@ -1,115 +1,95 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import * as Icons from 'lucide-react';
 import { ArrowLeft, Check, ArrowUpRight } from 'lucide-react';
-import { getDictionary, localizedHref, LOCALES } from '@/lib/i18n';
-import { MODULES, getModuleBySlug } from '@/config/modules';
-import CTASection from '@/components/CTASection';
+import { localizedHref, LOCALES } from '@/lib/locales';
+import { createPageMetadata } from '@/lib/pageMetadata';
+import { EXPLORER_MODULES } from '@/config/moduleExperience';
+import styles from './ModuleDetail.module.css';
 
 export function generateStaticParams() {
   return LOCALES.flatMap((locale) =>
-    MODULES.map((m) => ({ locale, slug: m.slug }))
+    EXPLORER_MODULES.map((module) => ({ locale, slug: module.slug }))
   );
 }
 
 export async function generateMetadata({ params }) {
   const { locale, slug } = await params;
-  const mod = getModuleBySlug(slug);
-  if (!mod) return {};
-  return {
-    title: mod.name[locale],
-    description: mod.long[locale],
-  };
+  const selectedModule = EXPLORER_MODULES.find((item) => item.slug === slug);
+  if (!selectedModule || !LOCALES.includes(locale)) notFound();
+  return createPageMetadata({
+    locale,
+    path: `/modules/${selectedModule.slug}`,
+    title: selectedModule.name[locale],
+    description: selectedModule[locale].description,
+  });
 }
 
 export default async function ModuleDetailPage({ params }) {
   const { locale, slug } = await params;
-  const dict = getDictionary(locale);
-  const mod = getModuleBySlug(slug);
-  if (!mod) notFound();
-
-  const Icon = Icons[mod.icon] ?? Icons.Box;
-  const others = MODULES.filter((m) => m.slug !== slug).slice(0, 4);
+  const selectedModule = EXPLORER_MODULES.find((item) => item.slug === slug);
+  if (!selectedModule || !LOCALES.includes(locale)) notFound();
+  const presentation = selectedModule[locale];
+  const isEnglish = locale === 'en';
+  const others = EXPLORER_MODULES.filter((item) => item.slug !== slug).slice(0, 4);
+  const demoHref = localizedHref(locale, `/contact?intent=demo&module=${selectedModule.slug}`);
 
   return (
-    <>
-      <section className="relative overflow-hidden bg-gradient-to-b from-orbis-50/60 via-white to-white">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30 -z-10" />
-        <div className="container-orbis pt-16 pb-20">
+    <div className={styles.page}>
+      <section className={`${styles.wrap} ${styles.introduction}`} aria-labelledby="module-detail-title">
           <Link
             href={localizedHref(locale, '/modules')}
-            className="inline-flex items-center gap-2 text-sm text-ink-600 hover:text-orbis-600 mb-8"
+            className={styles.backLink}
           >
-            <ArrowLeft className="h-4 w-4" />
-            {dict.modulesPage.backToModules}
+            <ArrowLeft size={16} aria-hidden="true" />
+            {isEnglish ? 'All modules' : 'Tous les modules'}
           </Link>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
-              <div className={`inline-flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-br ${mod.color} text-white shadow-lg`}>
-                <Icon className="h-7 w-7" />
-              </div>
-              <h1 className="mt-6 heading-1">{mod.name[locale]}</h1>
-              <p className="mt-5 lead">{mod.long[locale]}</p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Link href={localizedHref(locale, '/contact')} className="btn-primary">
-                  {dict.common.freeTrial}
+          <div className={styles.introGrid}>
+            <div>
+              <p className={styles.eyebrow}>{isEnglish ? 'A workspace for your business' : 'Un espace pour votre métier'}</p>
+              <h1 id="module-detail-title">{selectedModule.name[locale]}</h1>
+              <p className={styles.tagline}>{presentation.title}</p>
+              <p className={styles.description}>{presentation.description}</p>
+              <div className={styles.actions}>
+                <Link href={demoHref} className={styles.button}>
+                  {isEnglish ? 'See this module in a demo' : 'Voir ce module en démo'}
+                  <ArrowUpRight size={18} aria-hidden="true" />
                 </Link>
-                <Link href={localizedHref(locale, '/demo')} className="btn-secondary">
-                  {dict.common.bookDemo}
+                <Link href={localizedHref(locale, '/tarifs')} className={styles.textLink}>
+                  {isEnglish ? 'Explore the plans' : 'Voir les formules'}
+                  <ArrowUpRight size={17} aria-hidden="true" />
                 </Link>
               </div>
             </div>
-
-            <div className="lg:col-span-5">
-              <div className="rounded-3xl border border-ink-100 bg-white p-8 shadow-soft">
-                <h2 className="text-sm font-semibold uppercase tracking-wider text-orbis-700">
-                  {dict.modulesPage.keyFeatures}
-                </h2>
-                <ul className="mt-5 space-y-3">
-                  {mod.features.map((f) => (
-                    <li key={f[locale]} className="flex items-start gap-3">
-                      <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-orbis-100">
-                        <Check className="h-3 w-3 text-orbis-700" />
-                      </span>
-                      <span className="text-ink-700">{f[locale]}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <aside className={styles.scope} aria-labelledby="module-scope-title">
+              <p className={styles.eyebrow}>{isEnglish ? 'Topics to explore' : 'Les sujets à explorer'}</p>
+              <h2 id="module-scope-title">{presentation.space}</h2>
+              <ul>
+                {presentation.features.map((feature) => (
+                  <li key={feature}><Check size={16} aria-hidden="true" />{feature}</li>
+                ))}
+              </ul>
+              <p className={styles.scopeNote}>
+                {isEnglish
+                  ? 'Explore these topics during a focused demonstration. The exact scope is defined around your organisation and confirmed in your proposal.'
+                  : 'Explorez ces sujets lors d’une démonstration ciblée. Le périmètre précis se définit selon votre organisation et se confirme dans votre proposition.'}
+              </p>
+            </aside>
+          </div>
+      </section>
+      <section className={styles.related} aria-labelledby="related-modules-title">
+        <div className={styles.wrap}>
+          <p className={styles.eyebrow}>{isEnglish ? 'A broader perspective' : 'Une vision d’ensemble'}</p>
+          <h2 id="related-modules-title">{isEnglish ? 'Other teams to connect.' : 'D’autres métiers à relier.'}</h2>
+          <div className={styles.relatedGrid}>
+            {others.map((item) => (
+              <Link className={styles.relatedLink} key={item.slug} href={localizedHref(locale, `/modules/${item.slug}`)}>
+                <h3>{item.name[locale]}<ArrowUpRight size={17} aria-hidden="true" /></h3>
+                <p>{item[locale].description}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
-
-      <section className="section bg-white">
-        <div className="container-orbis">
-          <h2 className="heading-3 text-center">{dict.modulesPage.discoverOthers}</h2>
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {others.map((m) => {
-              const Mi = Icons[m.icon] ?? Icons.Box;
-              return (
-                <Link
-                  key={m.slug}
-                  href={localizedHref(locale, `/modules/${m.slug}`)}
-                  className="group rounded-3xl border border-ink-100 bg-white p-6 hover:border-orbis-200 hover:shadow-soft transition-all"
-                >
-                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${m.color} text-white`}>
-                    <Mi className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-4 font-bold text-ink-900 flex items-center gap-1.5">
-                    {m.name[locale]}
-                    <ArrowUpRight className="h-3.5 w-3.5 text-orbis-500 opacity-0 group-hover:opacity-100" />
-                  </h3>
-                  <p className="mt-1 text-sm text-ink-600">{m.short[locale]}</p>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <CTASection locale={locale} dict={dict} />
-    </>
+    </div>
   );
 }
