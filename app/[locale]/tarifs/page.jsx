@@ -1,36 +1,19 @@
-import { getDictionary } from '@/lib/i18n';
-import PageHeader from '@/components/PageHeader';
-import PricingCards from '@/components/PricingCards';
-import ComparisonTable from '@/components/ComparisonTable';
-import CTASection from '@/components/CTASection';
+import PricingExperience from '@/components/PricingExperience';
+import { createPageMetadata } from '@/lib/pageMetadata';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  const dict = getDictionary(locale);
-  return {
-    title: dict.pricing.title,
-    description: dict.pricing.subtitle,
-  };
+  return createPageMetadata({
+    locale,
+    path: '/tarifs',
+    title: locale === 'en' ? 'Pricing — a plan for your business' : 'Tarifs — une formule pour votre activité',
+    description: locale === 'en'
+      ? 'Explore the Starter, Business and Enterprise plans, then select your Orbis ERP modules to prepare a tailored quote.'
+      : 'Découvrez les formules Starter, Business et Enterprise, puis choisissez vos modules Orbis ERP pour préparer un devis adapté.',
+  });
 }
 
 export default async function PricingPage({ params }) {
   const { locale } = await params;
-  const dict = getDictionary(locale);
-
-  return (
-    <>
-      <PageHeader
-        eyebrow={dict.pricing.eyebrow}
-        title={dict.pricing.title}
-        subtitle={dict.pricing.subtitle}
-      />
-      <section className="pb-20">
-        <div className="container-orbis">
-          <PricingCards locale={locale} dict={dict} />
-          <ComparisonTable locale={locale} dict={dict} />
-        </div>
-      </section>
-      <CTASection locale={locale} dict={dict} />
-    </>
-  );
+  return <PricingExperience locale={locale} />;
 }

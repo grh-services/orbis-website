@@ -17,6 +17,7 @@ export default function Header({ locale, dict }) {
   const menuButton = useRef(null);
   const homeHref = localizedHref(locale, '/');
   const isHome = pathname === homeHref || pathname === `${homeHref}/` || pathname === '/';
+  const darkHeader = isHome || ['/modules', '/secteurs', '/tarifs', '/a-propos', '/contact'].some((path) => pathname === localizedHref(locale, path));
   const isEnglish = locale === 'en';
   const closeMenu = () => setOpen(false);
 
@@ -61,18 +62,18 @@ export default function Header({ locale, dict }) {
   });
 
   return (
-    <header className={`${styles.header} ${isHome ? styles.headerDark : styles.headerLight} ${scrolled ? styles.headerScrolled : ''}`}>
+    <header className={`${styles.header} ${darkHeader ? styles.headerDark : styles.headerLight} ${scrolled ? styles.headerScrolled : ''}`}>
       <div className={styles.headerInner}>
-        <Logo locale={locale} tone={isHome ? 'light' : 'dark'} />
+        <Logo locale={locale} tone={darkHeader ? 'light' : 'dark'} />
         <nav className={styles.desktopNav} aria-label={isEnglish ? 'Main navigation' : 'Navigation principale'}>
           {navigation()}
         </nav>
         <div className={styles.desktopActions}>
-          <LanguageSwitcher locale={locale} tone={isHome ? 'light' : 'dark'} />
+          <LanguageSwitcher locale={locale} tone={darkHeader ? 'light' : 'dark'} />
           <a href="https://app.orbisloura.com" className={styles.loginLink}>
             {isEnglish ? 'Log in' : 'Se connecter'}
           </a>
-          <Link href={localizedHref(locale, '/demo')} className={styles.headerCta}>
+          <Link href={localizedHref(locale, '/contact?intent=demo')} className={styles.headerCta}>
             {dict.common.bookDemo}<ArrowUpRight size={15} aria-hidden="true" />
           </Link>
         </div>
@@ -88,11 +89,11 @@ export default function Header({ locale, dict }) {
           {navigation(true)}
         </nav>
         <div className={styles.mobileActions}>
-          <LanguageSwitcher locale={locale} tone={isHome ? 'light' : 'dark'} />
+          <LanguageSwitcher locale={locale} tone={darkHeader ? 'light' : 'dark'} />
           <a href="https://app.orbisloura.com" className={styles.loginLink} onClick={closeMenu}>
             {isEnglish ? 'Log in' : 'Se connecter'}<ArrowUpRight size={16} aria-hidden="true" />
           </a>
-          <Link href={localizedHref(locale, '/demo')} className={styles.headerCta} onClick={closeMenu}>
+          <Link href={localizedHref(locale, '/contact?intent=demo')} className={styles.headerCta} onClick={closeMenu}>
             {dict.common.bookDemo}<ArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </div>
